@@ -1,0 +1,120 @@
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,700;1,200&family=Raleway:ital,wght@0,300;0,500;0,700;1,300;1,600&display=swap');
+
+:root {
+    --amarillo: rgba(209, 143, 9, 1);
+    --verde: rgba(100, 140, 58, 1);
+    --azul: rgba(55, 102, 173, 1);
+    --morado: rgba(158, 55, 173, 1);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border: 1px black solid; */
+}
+
+body{
+    background: linear-gradient(180deg, white 0%, var(--azul)100%);
+    background-size: 100%;
+    font-family: 'Raleway';
+}
+
+.fc-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    margin: auto;
+    padding: 10%;
+}
+
+.fc-logincard {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 50px;
+    padding: 3%;
+    background: rgba(255, 255, 255, 1);
+
+}
+
+.fc-logincard img {
+    width: 60%;
+}
+
+.fc-logincard-logo {
+    width: 70%;
+    border-radius: 1000px;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.5);
+    background: white;
+}
+
+.fc-logincard-imgcontainer {
+    box-sizing: content-box;
+    text-align: center;
+    padding: 4%;
+    margin: 30px;
+}
+
+.fc-logindata {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: auto;
+    padding:5px;
+
+}
+
+.fc-logindata div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 18px;
+    margin: 10px;
+    width: 50% ;
+
+}
+
+.fc-logindata div * {
+    text-align: center;
+    margin: 5px 0;
+    border: none;
+}
+
+.fc-logindata input{
+    border-bottom: 1px solid black;
+    outline: 0;
+    border-radius: 20px;
+    height: 35px;
+    font-size: 15px;
+    /* background: none; */
+}
+
+.fc-logindata input:hover, .fc-logindata input:focus{
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.5);
+}
+
+.fc-loginbutton{
+    width: 40%;
+    height: auto;
+    margin: 50px;
+    background: var(--azul);
+    padding: 2%;
+    border: none;
+    border-radius: 50px;
+    font-size: 15px;
+    color: white;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    text-align: center;
+}
+
+.fc-loginbutton:hover, .fc-logincard button:focus {
+    background: #0080c0;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.8);
+}
