@@ -63,7 +63,8 @@ buttonAvailableBooks.addEventListener('click', () => {
 
     // alert("entre")
 
-    const url = `http://localhost:9000/api/books`;
+    // const url = `http://localhost:9000/api/books`;
+    const url = `https://nodeapi-jmgi.onrender.com/api/books`;
 
     fetch(url)
     .then(response => response.json())
@@ -82,7 +83,8 @@ buttonBookedBooks.addEventListener('click', () => {
     formContainer.style.display="none";
     tableBodyContainer.style.display="flex";
 
-    const url = `http://localhost:9000/api/books`;
+    // const url = `http://localhost:9000/api/books`;
+    const url = `https://nodeapi-jmgi.onrender.com/api/books`;
 
     fetch(url)
     .then(response => response.json())
@@ -100,7 +102,8 @@ buttonUploadedBooks.addEventListener('click', () => {
     formContainer.style.display="none";
     tableBodyContainer.style.display="flex";
 
-    const url = `http://localhost:9000/api/books`;
+    // const url = `http://localhost:9000/api/books`;
+    const url = `https://nodeapi-jmgi.onrender.com/api/books`;
 
     fetch(url)
     .then(response => response.json())
@@ -128,7 +131,8 @@ buttonNewBook.addEventListener('click', () => {
 // Button: Guardar Nuevo Libro - Configuration
 buttonSaveForm.addEventListener('click', () => {
 
-    const url = `http://localhost:9000/api/books`;
+    // const url = `http://localhost:9000/api/books`;
+    const url = `https://nodeapi-jmgi.onrender.com/api/books`;
 
     const data = {
         author: `${document.getElementById("author").value}`,
