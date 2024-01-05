@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,700;1,200&family=Raleway:ital,wght@0,300;0,500;0,700;1,300;1,600&display=swap');
+
+:root {
+    --amarillo: rgba(209, 143, 9, 1);
+    --verde: rgba(100, 140, 58, 1);
+    --azul: rgba(55, 102, 173, 1);
+    --morado: rgba(158, 55, 173, 1);
+    --button1: rgba(220, 172, 40,0.8);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border: 1px solid black; */
+}
+
+header{
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.header_app{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    padding: 10px;
+}
+
+
+.header_app img{
+    width: 200px;
+}
+
+.main_app {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 80%;
+    height: 90vh;
+}
+
+.main_app_buttons{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width:90%;
+    margin-top: 50px;
+    
+}
+
+.main_app_buttons button {
+    background-color: var(--azul);
+    color: white;
+    padding: 10px;
+    font-family: Montserrat;
+    border-radius: 25px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    border: none
+}
+
+.main_app_table_container{
+    display: flex;
+    margin-top: 50px;
+    width:90%;
+    height: 60vh;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    border-radius: 15px;
+    text-align: center;
+    overflow: scroll;
+}
+
+.button1{
+    border:none;
+    background: none;
+}
+
+.main_app_footer {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.main_app_form_container{
+    margin-top: 50px;
+    /* border: 1px solid black; */
+    padding: 20px;
+    width:90%;
+    height: 60vh;
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    border-radius: 10px;
+
+
+
+}
+
+.main_app_form_container form{
+    display: flex;
+    flex-wrap: wrap;
+    width:90%;
+
+}
+
+.main_app_form_container div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+    margin: 10px;
+
+}
+
+.main_app_form_container label{
+    width:100%;
+    text-align: center;
+    color: var(--amarillo);
+
+}
+
+.main_app_form_container input{
+    width:100%;
+    text-align: center;
+    color: grey;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    outline: 0;
+
+}
+
+.main_app_form_container button{
+    align-self: flex-end;
+    font-size: 30px;
+}
+
+.main_app_form_container_buttons {
+    width: 100%;
+    display: flex;
+    align-self: center;
+}
