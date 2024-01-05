@@ -1,0 +1,75 @@
+// 20240105031502
+// https://nodeapi-jmgi.onrender.com/api/users
+
+[
+  {
+    "_id": "659705ec7f028c85b894479c",
+    "name": "Daniela",
+    "surname": "Diaz",
+    "age": "20",
+    "cel": "945846",
+    "email": "dadiaz@email.com",
+    "password": "4321",
+    "__v": 0
+  },
+  {
+    "_id": "6597231b33ff26046b94c397",
+    "name": "Santiago",
+    "surname": "Zuluaga",
+    "age": "27",
+    "cel": "3014296666",
+    "email": "sazu@email.com",
+    "password": "1111gogo!$",
+    "__v": 0
+  },
+  {
+    "_id": "6597a27b30f4750fe1eec4d0",
+    "name": "Danilo",
+    "surname": "Velez",
+    "age": "34",
+    "cel": "455876215",
+    "email": "dalo@email.com",
+    "password": "123456",
+    "__v": 0
+  },
+  {
+    "_id": "6597ab9593f2e62c969f9de9",
+    "name": "Daniel",
+    "surname": "Velez",
+    "age": "46",
+    "cel": "455876215",
+    "email": "dave@email.com",
+    "password": "123456",
+    "__v": 0
+  },
+  {
+    "_id": "6597ac5793f2e62c969f9df5",
+    "name": "Cris",
+    "surname": "Torres",
+    "age": "29",
+    "cel": "36589",
+    "email": "crito@email.com",
+    "password": "12364",
+    "__v": 0
+  },
+  {
+    "_id": "6597aefc1e1bb1a0878e6e43",
+    "name": "Rine",
+    "surname": "Gomez",
+    "age": "16",
+    "cel": "30025458",
+    "email": "rigo@email.com",
+    "password": "12346",
+    "__v": 0
+  },
+  {
+    "_id": "6597af0d1e1bb1a0878e6e46",
+    "name": "Angie",
+    "surname": "Angel",
+    "age": "26",
+    "cel": "30025458",
+    "email": "an@email.com",
+    "password": "1234",
+    "__v": 0
+  }
+]
