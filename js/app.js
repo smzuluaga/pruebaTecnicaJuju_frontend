@@ -1,3 +1,7 @@
+
+// Captura de los elementos DOM
+
+//BOTONES
 const buttonLogout = document.getElementById("header-app-buttonLogout");
 const buttonAvailableBooks = document.getElementById("main-app-button_avaBooks");
 const buttonBookedBooks = document.getElementById("main-app-button_booBooks");
@@ -6,18 +10,39 @@ const buttonNewBook = document.getElementById("main-app-button_newBook");
 const buttonBackForm = document.getElementById("main-app-form-backbutton");
 const buttonSaveForm = document.getElementById("main-app-form-savebutton");
 
+//ELEMENTOS 
 const tableBodyContainer = document.getElementById("main-app-container");
 const tableBody = document.getElementById("main-app-tableBody");
 const formContainer = document.getElementById("main-app-form-container");
 const formOwnerId = document.getElementById("ownerId");
 const formCurrentHolderId = document.getElementById("currentHolderId");
-// const form = document.getElementById("main-app-form-container");
+const form = document.getElementById("main-app-form-container");
 
-let SocialBook_DB;
+
+//Funcion que se ejecuta cada que se carga el DOM
 
 document.addEventListener('DOMContentLoaded', () => {
     setLocalStorage();
 })
+
+
+// Funciones Generales para identificar al usuario en sesión.
+let SocialBook_DB;
+
+function saveLocalStorage(DB){
+
+    localStorage.setItem('SocialBook_DB', JSON.stringify(DB));
+
+}
+
+function setLocalStorage(){
+
+    SocialBook_DB = JSON.parse(localStorage.getItem('SocialBook_DB'));
+
+}
+
+// CONFIGURACION DE BOTONES
+
 
 //Button: Logout - Configuration
 buttonLogout.addEventListener('click', () => {
@@ -28,7 +53,6 @@ buttonLogout.addEventListener('click', () => {
     window.location.href="./index.html"
 
 })
-
 
 
 //Button: Ver Disponibles - Configuration
@@ -46,19 +70,17 @@ buttonAvailableBooks.addEventListener('click', () => {
     .then((data) => {
 
         buildTable(data, "state", "Disponible");
-        console.log("DONEE");
-        // alert("we did itttttt")
+        alert("Operacion Realizada con Éxito, \n Datos Generados Correctamente");
         
     })
 })
+
 
 //Button: Mis Libros Reservados - Configuration
 buttonBookedBooks.addEventListener('click', () => {
 
     formContainer.style.display="none";
     tableBodyContainer.style.display="flex";
-
-    alert("entre booked")
 
     const url = `http://localhost:9000/api/books`;
 
@@ -67,8 +89,7 @@ buttonBookedBooks.addEventListener('click', () => {
     .then((data) => {
 
         buildTable(data, "currentHolderId", `${SocialBook_DB.currentUser._id}`);
-        console.log("DONEE booked");
-        // alert("we did itttttt")
+        alert("Operacion Realizada con Éxito, \n Datos Generados Correctamente");
         
     })
 })
@@ -79,8 +100,6 @@ buttonUploadedBooks.addEventListener('click', () => {
     formContainer.style.display="none";
     tableBodyContainer.style.display="flex";
 
-    alert("entre uploeaded")
-
     const url = `http://localhost:9000/api/books`;
 
     fetch(url)
@@ -88,8 +107,7 @@ buttonUploadedBooks.addEventListener('click', () => {
     .then((data) => {
 
         buildTable(data, "ownerId", `${SocialBook_DB.currentUser._id}`);
-        console.log("DONEE uplo");
-        // alert("we did itttttt")
+        alert("Operacion Realizada con Éxito, \n Datos Generados Correctamente");
         
     })
 })
@@ -97,6 +115,7 @@ buttonUploadedBooks.addEventListener('click', () => {
 
 //Button:Nuevo Libro - Configuration
 buttonNewBook.addEventListener('click', () => {
+
     formContainer.style.display="flex"
     tableBodyContainer.style.display="none";
 
@@ -111,30 +130,22 @@ buttonSaveForm.addEventListener('click', () => {
 
     const url = `http://localhost:9000/api/books`;
 
-    // const data = {
-    //     author: document.getElementById("author").value,
-    //     pubYear: document.getElementById("pubYear").value,
-    //     title: document.getElementById("title").value,
-    //     state: document.getElementById("state").value,
-    //     ownerId: document.getElementById("ownerId").value,
-    //     currentHolderId: document.getElementById("currentHolderId").value
-    // }
-    // const data = {
-    //     author: `${document.getElementById("author").value}`,
-    //     pubYear: `${document.getElementById("pubYear").value}`,
-    //     title: `${document.getElementById("title").value}`,
-    //     state: `${document.getElementById("state").value}`,
-    //     ownerId: `${document.getElementById("ownerId").value}`,
-    //     currentHolderId: `${document.getElementById("currentHolderId").value}`
-    // }
     const data = {
-        author: "J.K. Rowling",
-        pubYear: 1997,
-        title: "Harry Potter y las reliquias de la muerte",
-        state: "Disponible",
-        ownerId: "6597231b33ff26046b94c397",
-        currentHolderId: "6597231b33ff26046b94c397"
+        author: `${document.getElementById("author").value}`,
+        pubYear: `${document.getElementById("pubYear").value}`,
+        title: `${document.getElementById("title").value}`,
+        state: `${document.getElementById("state").value}`,
+        ownerId: `${document.getElementById("ownerId").value}`,
+        currentHolderId: `${document.getElementById("currentHolderId").value}`
     }
+    // const data = {
+    //     author: "J.K. Rowling",
+    //     pubYear: 1997,
+    //     title: "Harry Potter y las reliquias de la muerte",
+    //     state: "Disponible",
+    //     ownerId: "6597231b33ff26046b94c397",
+    //     currentHolderId: "6597231b33ff26046b94c397"
+    // }
 
     fetch(url, 
         {
@@ -149,9 +160,9 @@ buttonSaveForm.addEventListener('click', () => {
     .then(response => response.json())
     .then((data) => {
 
-        buildTable(data, "state", "Disponible");
-        console.log("DONEE uplo");
-        // alert("we did itttttt")
+        tableBodyContainer.style.display="none";
+        buildTable(data, "ownerId", `${SocialBook_DB.currentUser._id}`);
+        alert("Operacion Realizada con Éxito.");
         
     })
 })
@@ -160,11 +171,16 @@ buttonSaveForm.addEventListener('click', () => {
 
 //Button: Atras del Formulario - Configuration
 buttonBackForm.addEventListener('click', () => {
+
     formContainer.style.display="none"
     tableBodyContainer.style.display="flex";
+
 })
 
 
+// FUNCIONES PARA CONSTRUIR LA TABLA
+
+// COSTRUIR UNA FILA POR CADA DATO RETORNADO EN LA PROMESA
 function buildTable (BooksList, filterAtribute, AtributeValue) {
 
     tableBody.innerHTML="";
@@ -198,6 +214,7 @@ function buildTable (BooksList, filterAtribute, AtributeValue) {
     }
 }
 
+// CONSTRUIR BOTONES DE CADA FILA
 
 function buildRowButtons (row){
     
@@ -242,20 +259,5 @@ function buildRowButtons (row){
     currentHolderActionsButtons.appendChild(currentHolderActionsButton2);
 
     row.appendChild(currentHolderActionsButtons);
-    
-    // const currentHolderActionsButtons = document.createElement('td');
-
 }
 
-
-function saveLocalStorage(DB){
-
-    localStorage.setItem('SocialBook_DB', JSON.stringify(DB));
-
-}
-
-function setLocalStorage(){
-
-    SocialBook_DB = JSON.parse(localStorage.getItem('SocialBook_DB'));
-
-}
