@@ -14,6 +14,9 @@
     box-sizing: border-box;
     /* border: 1px solid black; */
 }
+body{
+    height: 100vh;
+}
 
 header{
     display: flex;
@@ -23,6 +26,7 @@ header{
 main {
     display: flex;
     justify-content: center;
+
 }
 
 .header_app{
@@ -44,7 +48,7 @@ main {
     justify-content: flex-start;
     align-items: center;
     width: 80%;
-    height: 90vh;
+    height: 85vh;
 }
 
 .main_app_buttons{
@@ -68,7 +72,7 @@ main {
 
 .main_app_table_container{
     display: flex;
-    margin-top: 50px;
+    margin-top: 30px;
     width:90%;
     height: 60vh;
     box-shadow: 0 2px 4px rgba(0,0,0,0.6);
@@ -83,12 +87,12 @@ main {
 }
 
 .main_app_footer {
-    margin-top: 50px;
+    margin-top: 40px;
     text-align: center;
 }
 
 .main_app_form_container{
-    margin-top: 50px;
+    margin-top: 30px;
     /* border: 1px solid black; */
     padding: 20px;
     width:90%;
