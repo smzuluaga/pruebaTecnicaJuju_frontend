@@ -1,6 +1,6 @@
 # INSTRUCCIONES PARA EJECUTAR EL FRONTEND DE LA APPLICACIÓN
 
-1.  Haber realizado primero la clonación del repositorio backend de acuerdo con el README.md del siguiente repositorio.
+1.  Haber realizado primero todos los pasos de la configuracion del backend de acuerdo con el README.md del siguiente repositorio.
 	`https://github.com/smzuluaga/pruebaTecnicaJuju_backend`
 
 2. Crear una carpeta en el escritorio con el nombre que se desee.
