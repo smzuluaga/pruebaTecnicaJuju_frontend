@@ -16,7 +16,7 @@ const tableBody = document.getElementById("main-app-tableBody");
 const formContainer = document.getElementById("main-app-form-container");
 const formOwnerId = document.getElementById("ownerId");
 const formCurrentHolderId = document.getElementById("currentHolderId");
-const form = document.getElementById("main-app-form-container");
+const form = document.getElementById("main-app-form-data");
 
 
 //Funcion que se ejecuta cada que se carga el DOM
@@ -129,19 +129,24 @@ buttonNewBook.addEventListener('click', () => {
 
 
 // Button: Guardar Nuevo Libro - Configuration
-buttonSaveForm.addEventListener('click', () => {
+buttonSaveForm.addEventListener('click', (event) => {
+
+    event.preventDefault();
+    save();
 
     // const url = `http://localhost:9000/api/books`;
-    const url = `https://nodeapi-jmgi.onrender.com/api/books`;
+    // const url = `https://nodeapi-jmgi.onrender.com/api/books`;
 
-    const data = {
-        author: `${document.getElementById("author").value}`,
-        pubYear: `${document.getElementById("pubYear").value}`,
-        title: `${document.getElementById("title").value}`,
-        state: `${document.getElementById("state").value}`,
-        ownerId: `${document.getElementById("ownerId").value}`,
-        currentHolderId: `${document.getElementById("currentHolderId").value}`
-    }
+    // const data = new FormData(form)
+
+    // const data = {
+    //     author: `${document.getElementById("author").value}`,
+    //     pubYear: `${document.getElementById("pubYear").value}`,
+    //     title: `${document.getElementById("title").value}`,
+    //     state: `${document.getElementById("state").value}`,
+    //     ownerId: `${document.getElementById("ownerId").value}`,
+    //     currentHolderId: `${document.getElementById("currentHolderId").value}`
+    // }
     // const data = {
     //     author: "J.K. Rowling",
     //     pubYear: 1997,
@@ -151,27 +156,86 @@ buttonSaveForm.addEventListener('click', () => {
     //     currentHolderId: "6597231b33ff26046b94c397"
     // }
 
-    fetch(url, 
-        {
-        method: 'POST',
-        headers: 
-        {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-        }
-    )
-    .then(response => response.json())
-    .then((data) => {
-
-        tableBodyContainer.style.display="none";
-        buildTable(data, "ownerId", `${SocialBook_DB.currentUser._id}`);
-        alert("Operacion Realizada con Éxito.");
+    // fetch(url, 
+    //     {
+    //     method: 'POST',
+    //     mode: '_cors_',
+    //     cache: 'no-cache',
+    //     // headers: 
+    //     // {
+    //     //     'Content-Type': 'application/json'
+    //     // },
+    //     body: data
+    //     // body: JSON.stringify(data)
+    //     }
+    // )
+    // .then((response) => {
+    //     response.json()})
+    // .catch((err)=>console.log("hubo un error sz: ", err))
+    //     // .then((data) => {
+            
+    // console.log(response);
+    //     tableBodyContainer.style.display="none";
+    //     buildTable(data, "ownerId", `${SocialBook_DB.currentUser._id}`);
+    //     alert("Operacion Realizada con Éxito.");
         
-    })
+    // })
 })
 
 
+async function save(){
+
+    const url = `https://nodeapi-jmgi.onrender.com/api/books`;
+    // const url = `http://localhost:9000/api/books`;
+
+    // const data = new FormData(form)
+    const data =  {
+        'author': document.getElementById("author").value,
+        'pubYear': document.getElementById("pubYear").value,
+        'title': document.getElementById("title").value,
+        'state': document.getElementById("state").value,
+        'ownerId':document.getElementById("ownerId").value,
+        'currentHolderId': document.getElementById("currentHolderId").value
+    }
+
+    // function getData() {
+    //     return {
+    //         author: { type:`${document.getElementById("author").value}`},
+    //         pubYear: { type:`${document.getElementById("pubYear").value}`},
+    //         title: { type:`${document.getElementById("title").value}`},
+    //         state: { type:`${document.getElementById("state").value}`},
+    //         ownerId: {type:`${document.getElementById("ownerId").value}`},
+    //         currentHolderId: { type:`${document.getElementById("currentHolderId").value}`}
+    //     }
+    // }
+
+    // const data = await getData();
+
+    // console.log(data);
+    console.log(data);
+
+    let respo = await fetch(url, 
+        {
+        method: 'POST',
+        mode: 'cors',
+        headers: 
+        {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json'
+        },
+        // body: data
+        body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            return data
+        })
+        .catch((err)=>console.error("thisisanerro ",err))
+        
+    console.log("thisistherespose ",respo);
+    
+}
 
 //Button: Atras del Formulario - Configuration
 buttonBackForm.addEventListener('click', () => {
