@@ -56,7 +56,9 @@ buttonLogout.addEventListener('click', () => {
 
 
 //Button: Ver Disponibles - Configuration
-buttonAvailableBooks.addEventListener('click', () => {
+buttonAvailableBooks.addEventListener('click', (e) => {
+
+    e.preventDefault();
 
     formContainer.style.display="none";
     tableBodyContainer.style.display="flex";
@@ -78,7 +80,9 @@ buttonAvailableBooks.addEventListener('click', () => {
 
 
 //Button: Mis Libros Reservados - Configuration
-buttonBookedBooks.addEventListener('click', () => {
+buttonBookedBooks.addEventListener('click', (e) => {
+
+    e.preventDefault();
 
     formContainer.style.display="none";
     tableBodyContainer.style.display="flex";
@@ -97,7 +101,9 @@ buttonBookedBooks.addEventListener('click', () => {
 })
 
 //Button: Mis Libros Cargados - Configuration
-buttonUploadedBooks.addEventListener('click', () => {
+buttonUploadedBooks.addEventListener('click', (e) => {
+
+    e.preventDefault();
 
     formContainer.style.display="none";
     tableBodyContainer.style.display="flex";
@@ -117,7 +123,9 @@ buttonUploadedBooks.addEventListener('click', () => {
 
 
 //Button:Nuevo Libro - Configuration
-buttonNewBook.addEventListener('click', () => {
+buttonNewBook.addEventListener('click', (e) => {
+
+    e.preventDefault();
 
     formContainer.style.display="flex"
     tableBodyContainer.style.display="none";
@@ -134,52 +142,6 @@ buttonSaveForm.addEventListener('click', (event) => {
     event.preventDefault();
     save();
 
-    // const url = `http://localhost:9000/api/books`;
-    // const url = `https://nodeapi-jmgi.onrender.com/api/books`;
-
-    // const data = new FormData(form)
-
-    // const data = {
-    //     author: `${document.getElementById("author").value}`,
-    //     pubYear: `${document.getElementById("pubYear").value}`,
-    //     title: `${document.getElementById("title").value}`,
-    //     state: `${document.getElementById("state").value}`,
-    //     ownerId: `${document.getElementById("ownerId").value}`,
-    //     currentHolderId: `${document.getElementById("currentHolderId").value}`
-    // }
-    // const data = {
-    //     author: "J.K. Rowling",
-    //     pubYear: 1997,
-    //     title: "Harry Potter y las reliquias de la muerte",
-    //     state: "Disponible",
-    //     ownerId: "6597231b33ff26046b94c397",
-    //     currentHolderId: "6597231b33ff26046b94c397"
-    // }
-
-    // fetch(url, 
-    //     {
-    //     method: 'POST',
-    //     mode: '_cors_',
-    //     cache: 'no-cache',
-    //     // headers: 
-    //     // {
-    //     //     'Content-Type': 'application/json'
-    //     // },
-    //     body: data
-    //     // body: JSON.stringify(data)
-    //     }
-    // )
-    // .then((response) => {
-    //     response.json()})
-    // .catch((err)=>console.log("hubo un error sz: ", err))
-    //     // .then((data) => {
-            
-    // console.log(response);
-    //     tableBodyContainer.style.display="none";
-    //     buildTable(data, "ownerId", `${SocialBook_DB.currentUser._id}`);
-    //     alert("Operacion Realizada con Éxito.");
-        
-    // })
 })
 
 
@@ -198,20 +160,6 @@ async function save(){
         'currentHolderId': document.getElementById("currentHolderId").value
     }
 
-    // function getData() {
-    //     return {
-    //         author: { type:`${document.getElementById("author").value}`},
-    //         pubYear: { type:`${document.getElementById("pubYear").value}`},
-    //         title: { type:`${document.getElementById("title").value}`},
-    //         state: { type:`${document.getElementById("state").value}`},
-    //         ownerId: {type:`${document.getElementById("ownerId").value}`},
-    //         currentHolderId: { type:`${document.getElementById("currentHolderId").value}`}
-    //     }
-    // }
-
-    // const data = await getData();
-
-    // console.log(data);
     console.log(data);
 
     let respo = await fetch(url, 
@@ -233,12 +181,15 @@ async function save(){
         })
         .catch((err)=>console.error("thisisanerro ",err))
         
-    console.log("thisistherespose ",respo);
+    formContainer.style.display="none"
+    tableBodyContainer.style.display="flex";
     
 }
 
 //Button: Atras del Formulario - Configuration
-buttonBackForm.addEventListener('click', () => {
+buttonBackForm.addEventListener('click', (e) => {
+
+    e.preventDefault();
 
     formContainer.style.display="none"
     tableBodyContainer.style.display="flex";
