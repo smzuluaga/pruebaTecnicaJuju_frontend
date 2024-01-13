@@ -84,6 +84,10 @@ main {
 .button1{
     border:none;
     background: none;
+    align-self: flex-end;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    font-size: 25px;
 }
 
 .main_app_footer {
@@ -142,13 +146,20 @@ main {
 
 }
 
-.main_app_form_container button{
-    align-self: flex-end;
-    font-size: 30px;
-}
 
 .main_app_form_container_buttons {
     width: 100%;
     display: flex;
-    align-self: center;
+    justify-content: center;
+}
+
+.main_app_form_container_buttons button {
+    background-color: var(--azul);
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    font-family: Montserrat;
+    border-radius: 25px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    border: none
 }
